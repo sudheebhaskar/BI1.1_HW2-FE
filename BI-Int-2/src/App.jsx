@@ -9,7 +9,7 @@ function App() {
 
       <Hotels />
 
-      <HotelByName name="Lake View" />
+      <HotelByName name="Lake View Residency" />
     </>
   );
 }
