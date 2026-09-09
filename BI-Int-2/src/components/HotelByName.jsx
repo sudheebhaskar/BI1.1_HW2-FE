@@ -9,7 +9,7 @@ const HotelByName = ({ name }) => {
     <div>
       {loading && <p>Loading...</p>}
 
-      {error && <p>Error loading hotel</p>}
+      {error && <p>Error loading hotel.</p>}
 
       {data && (
         <div>
