@@ -2,8 +2,9 @@ import useFetch from "../useFetch"
  
 const Hotels = () => {
 
-   const { data, loading, error } = useFetch("https://be-4-4-hw-2-beta.vercel.app/hotels");
-
+    const { data, loading, error } = useFetch(
+        `${import.meta.env.VITE_API_URL}/hotels`
+      );
 
    return(
        <div>

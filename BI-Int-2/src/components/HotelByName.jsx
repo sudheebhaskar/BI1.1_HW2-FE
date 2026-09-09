@@ -1,31 +1,32 @@
-import useFetch from "../useFetch"
+import useFetch from "../useFetch";
 
 const HotelByName = ({ name }) => {
   const { data, loading, error } = useFetch(
-    `https://be-4-4-hw-2-beta.vercel.app/hotels/${name}`
+    `${import.meta.env.VITE_API_URL}/hotels/${name}`
   );
 
   return (
     <div>
       {loading && <p>Loading...</p>}
-      {error && <p>Error: {error.message}</p>}
 
-      {data && data.length > 0 && (
+      {error && <p>Error loading hotel</p>}
+
+      {data && (
         <div>
           <h2>
-            <strong>{data[0].name}</strong>
+            <strong>{data.name}</strong>
           </h2>
 
           <p>
-            <strong>Location:</strong> {data[0].location}
+            <strong>Location:</strong> {data.location}
           </p>
 
           <p>
-            <strong>Rating:</strong> {data[0].rating}
+            <strong>Rating:</strong> {data.rating}
           </p>
 
           <p>
-            <strong>Price Range:</strong> {data[0].priceRange}
+            <strong>Price Range:</strong> {data.priceRange}
           </p>
         </div>
       )}
