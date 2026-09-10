@@ -44,7 +44,7 @@ const AddHotelForm = () => {
     event.preventDefault();
     try {
       const response = await fetch(
-        "https://7909bf93-5c9a-415b-8060-64a48f50f2ec-00-2ubb2tyv4xznw.pike.replit.dev/hotels", 
+        `${import.meta.env.VITE_API_URL}/hotels`, 
         {
           method: "POST",
           headers: {
