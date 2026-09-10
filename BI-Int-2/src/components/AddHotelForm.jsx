@@ -40,11 +40,46 @@ const AddHotelForm = () => {
     }));
   };
 
-  const handleSubmit = async (event) => {
+// const handleSubmit = async (event) => {
+//     event.preventDefault();
+//     try {
+//       const response = await fetch(
+//         "https://be-4-4-hw-2-beta.vercel.app/hotels", 
+
+//             {
+//               method: "POST",
+//               headers: {
+//                 "Content-Type": "application/json",
+//               },
+//               body: JSON.stringify(formData),
+//             }
+//           );
+//         {
+//           method: "POST",
+//           headers: {
+//             "Content-Type": "application/json",
+//           },
+//           body: JSON.stringify(formData),
+//         }
+//       );
+//       if (!response.ok) {
+//         const errorDetails = await response.text();
+//         console.error("Server Error Details:", errorDetails);
+//         throw new Error("Failed to add hotel");
+//       }
+//       const data = await response.json();
+//       console.log("Added Hotel", data);
+//     } catch (error) {
+//       console.error(error);
+//     }
+//   };
+
+const handleSubmit = async (event) => {
     event.preventDefault();
+  
     try {
       const response = await fetch(
-        `${import.meta.env.VITE_API_URL}/hotels`, 
+        "https://be-4-4-hw-2-beta.vercel.app/hotels",
         {
           method: "POST",
           headers: {
@@ -53,15 +88,18 @@ const AddHotelForm = () => {
           body: JSON.stringify(formData),
         }
       );
+  
       if (!response.ok) {
         const errorDetails = await response.text();
         console.error("Server Error Details:", errorDetails);
         throw new Error("Failed to add hotel");
       }
+  
       const data = await response.json();
-      console.log("Added Hotel", data);
+  
+      console.log("Added Hotel:", data);
     } catch (error) {
-      console.error(error);
+      console.error("Error while adding hotel:", error);
     }
   };
 
