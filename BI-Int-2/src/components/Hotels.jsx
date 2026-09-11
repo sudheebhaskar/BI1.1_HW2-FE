@@ -7,20 +7,28 @@ const Hotels = () => {
   const { data, loading, error } = useFetch(
     `${import.meta.env.VITE_API_URL}/hotels`
   );
+
+
   const handleDelete = async (hotelId) => {
-    try{
-      const response = await fetch( `${import.meta.env.VITE_API_URL}/hotels/${hotelId}`,
-                                   { method: "DELETE"},
-                                  );
-      if(!response.ok){
-        throw "Failed to delete hotel.";
+    try {
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/hotels/${hotelId}`,
+        {
+          method: "DELETE",
+        }
+      );
+  
+      if (!response.ok) {
+        throw new Error("Failed to delete hotel.");
       }
+  
       const data = await response.json();
-      if(data){
+  
+      if (data) {
         setSuccessMessage("Hotel deleted successfully");
         window.location.reload();
       }
-    }  catch (error){
+    } catch (error) {
       console.log(error);
     }
   };
